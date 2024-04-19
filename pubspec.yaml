@@ -1,0 +1,49 @@
+name: iceb
+description: A Very Good Project created by Very Good CLI.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: "^3.3.0"
+
+dependencies:
+  bloc: ^8.1.3
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.4
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.1
+  font_awesome_flutter:
+
+  flutter_gen: any
+dev_dependencies:
+  bloc_test: ^9.1.6
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.3
+  very_good_analysis: ^5.1.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/
+    - assets/celebrity/
+    - assets/onboarding/
+
+  fonts:
+    - family: chiralla
+      fonts:
+        - asset: fonts/chiralla/chiralla.ttf
+          style: normal
+    - family: nova_klasse
+      fonts:
+        - asset: fonts/novaklasse/novaklasse_semibold.otf
+          style: normal
+        - asset: fonts/novaklasse/novaklasse_semibdoblique.otf
+          style: italic
+
+
+
