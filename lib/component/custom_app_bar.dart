@@ -1,12 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:iceb/presentation/story/component/custom_tab.dart';
 import 'package:iceb/presentation/story/view/story_view.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-   CustomAppBar({super.key, this.isHome = true});
+  CustomAppBar({super.key, this.isHome = true});
+
   bool isHome;
+
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,18 +25,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       (states) => Colors.transparent),
                   // customBorder: const StadiumBorder(),
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute<Widget>(
-                          builder: (_) =>  StoryView()),
-                    );
+                  Get.to(()=>StoryView());
                   },
                   child: const FaIcon(
                     FontAwesomeIcons.barsStaggered,
                     color: Colors.white,
                   ))
               : InkWell(
-                  onTap: () => Navigator.pop(context),
+                  onTap: () => Get.back(),
                   overlayColor: MaterialStateColor.resolveWith(
                       (states) => Colors.transparent),
                   child: Container(
@@ -65,10 +65,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           'iCeb',
           style: Theme.of(context).textTheme.titleMedium,
         ),
+
       ),
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 40);
 }

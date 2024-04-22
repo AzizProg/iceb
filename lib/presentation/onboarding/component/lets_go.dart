@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iceb/core/extensions/size_helper.dart';
 import 'package:iceb/presentation/home/view/home_view.dart';
 
@@ -10,7 +11,7 @@ class LetsGo extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (_) => HomeView()));
+      Get.to(()=>const HomeView());
       },
       child: Container(
         padding: const EdgeInsets.all(5),
@@ -51,8 +52,8 @@ class LetsGo extends StatelessWidget {
                     .textTheme
                     .labelSmall
                     ?.copyWith(color: Colors.black),
-              )),
-            )
+              ),),
+            ),
           ],
         ),
       ),

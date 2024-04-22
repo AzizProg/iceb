@@ -81,13 +81,13 @@ class HomeView extends StatelessWidget {
                               ?.copyWith(fontSize: 24),
                           children: [
                             TextSpan(
-                                text: "une nouvelle generation",
+                                text: 'une nouvelle generation',
                                 style: TextStyle(
                                     foreground: Paint()
                                       ..style = PaintingStyle.stroke
                                       ..color = Colors.white
                                       ..strokeWidth = 1)),
-                            TextSpan(text: ' forte et responsable ')
+                            const TextSpan(text: ' forte et responsable ')
                           ]))),
             ],
           )),
