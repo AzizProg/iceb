@@ -8,7 +8,7 @@ import 'package:iceb/presentation/story/component/custom_tabbar.dart';
 import 'package:iceb/presentation/story/controller/story_controller.dart';
 
 class StoryView extends GetView<StoryController> {
-  StoryView({super.key});
+  const StoryView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +34,7 @@ class StoryView extends GetView<StoryController> {
                 child: Column(
                   children: [
                     CustomTabbar(),
-                    const SizedBox(
-                      height: 50,
-                    ),
+
                     Expanded(
                       child: TabBarView(
                         controller: controller.tabController,

@@ -9,7 +9,7 @@ class CelebrityName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: context.getThirdOfHeight / 6,
+      height: context.getThirdOfHeight / 4,
       decoration: const BoxDecoration(
         color: Color(0xFFD9D9D9),
         borderRadius: BorderRadius.only(
@@ -17,7 +17,7 @@ class CelebrityName extends StatelessWidget {
             bottomRight: Radius.circular(25)),
       ),
       child:Center(
-        child: Text(name,style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Colors.black)),
+        child: Text(name,style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Colors.black,fontSize: 24)),
       ) ,
     );
   }

@@ -1,15 +1,21 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:iceb/core/extensions/size_helper.dart';
-import 'package:iceb/core/helpers/asset_helper.dart';
 import 'package:iceb/presentation/story/component/celebrity_name.dart';
 import 'package:iceb/presentation/story/component/saturation.dart';
 
 class Celebrity extends StatelessWidget {
-  const Celebrity({super.key});
+  const Celebrity({
+    required this.asset,
+    required this.name,
+    super.key,
+    this.fixed = true,
+    required this.onTap,
+  });
+
+  final String name;
+  final bool fixed;
+  final String asset;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -17,38 +23,52 @@ class Celebrity extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Center(
         child: Stack(
+          alignment: Alignment.center,
           children: [
             Container(
               width: double.infinity,
-              height: context.getThirdOfHeight,
+              height: context.getHeight(300),
               decoration: BoxDecoration(
                 color: const Color(0xFFD9D9D9),
                 borderRadius: BorderRadius.circular(25),
               ),
             ),
-            Positioned(
-              bottom: 0,
-              top: 0,
-              left: 0,
-              right: 0,
-              child: Transform.translate(
-                offset: Offset(0, -0),
-
-                //offset: const Offset(0, 0),
-                child: Saturation(
-                  child: Image.asset(
-                    AssetsHelper.edithBrou,
-
-                    //fit: BoxFit.cover,
+            Positioned.fill(
+              child: AnimatedContainer(
+                duration: const Duration(seconds: 1),
+                //alignment: Alignment.bottomCenter,
+                curve: Curves.easeInOut,
+                transform: Matrix4.identity()
+                  ..translate(
+                    0.0,
+                    fixed ? -100.0 : 0.0,
+                  )
+                // ..scale(fixed ? 1.0 : 1.0, fixed ? 1.2 : 1.0, 1.0)
+                ,
+                child: AnimatedOpacity(
+                  duration: const Duration(seconds: 1),
+                  opacity: fixed ? 1.0 : 0.0,
+                  child: InkWell(
+                    onTap:onTap ,
+                    child: Hero(
+                      tag: 'code',
+                      child: Saturation(
+                        child: Image.asset(
+                          asset,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
             ),
-            const Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: CelebrityName(name: 'EDITH BROU')),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: CelebrityName(name: name),
+            ),
           ],
         ),
       ),

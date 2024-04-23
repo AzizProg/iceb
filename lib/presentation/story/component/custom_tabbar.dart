@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iceb/core/extensions/size_helper.dart';
 import 'package:iceb/presentation/story/component/custom_tab.dart';
 import 'package:iceb/presentation/story/controller/story_controller.dart';
 
@@ -17,7 +18,7 @@ class CustomTabbar extends GetView<StoryController> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
+      height: context.getHeight(40),
 
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
