@@ -1,7 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iceb/core/extensions/size_helper.dart';
 import 'package:iceb/presentation/story/component/celebrity_name.dart';
 import 'package:iceb/presentation/story/component/saturation.dart';
+import 'package:iceb/presentation/story/controller/story_controller.dart';
 
 class Celebrity extends StatelessWidget {
   const Celebrity({
@@ -51,12 +54,9 @@ class Celebrity extends StatelessWidget {
                   child: InkWell(
                     onTap:onTap ,
                     child: Hero(
-                      tag: 'code',
+                      tag: name,
                       child: Saturation(
-                        child: Image.asset(
-                          asset,
-                          fit: BoxFit.cover,
-                        ),
+                        child:CachedNetworkImage(imageUrl: asset,fit: BoxFit.cover,)
                       ),
                     ),
                   ),

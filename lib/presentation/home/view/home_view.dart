@@ -13,7 +13,6 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       drawerScrimColor: Colors.transparent,
       extendBodyBehindAppBar: true,
-      drawer: const ProfilView(),
       appBar: CustomAppBar(),
       body: SafeArea(
           top: false,

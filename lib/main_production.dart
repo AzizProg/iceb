@@ -1,6 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:iceb/app/app.dart';
 import 'package:iceb/bootstrap.dart';
 
-void main() {
-  bootstrap(() => const App());
+import 'firebase_options.dart';
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await bootstrap(() => const App());
 }

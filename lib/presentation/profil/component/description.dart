@@ -26,8 +26,8 @@ class Description extends StatelessWidget {
 
               // textAlign: TextAlign.justify,
               style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  fontSize: 14, height: 1.5, fontWeight: FontWeight.w500),
-            )
+                  fontSize: 14, height: 1.5, fontWeight: FontWeight.w500,),
+            ),
           ],
         );
       },
