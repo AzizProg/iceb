@@ -1,36 +1,41 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:iceb/domain/entity/celebrity.dart';
 
 class Description extends StatelessWidget {
-  const Description({super.key});
+  const Description({super.key, required this.celebrity});
+  final CelebrityEntity celebrity;
 
   @override
   Widget build(BuildContext context) {
-    return PageView.builder(
-      physics: const ClampingScrollPhysics(),
-      scrollDirection: Axis.vertical,
-      itemCount: 3,
-      itemBuilder: (context, index) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'EDITH BROU',
-              style:
-                  Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 28),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              'Activiste dans le journaliste, Mme dirige un bon d’information provenant de source sûr dont elle seule a le secret.',
-
-              // textAlign: TextAlign.justify,
-              style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  fontSize: 14, height: 1.5, fontWeight: FontWeight.w500,),
-            ),
-          ],
-        );
-      },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          celebrity.name.toUpperCase(),
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 28),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Expanded(
+          child: PageView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: 3,
+            itemBuilder: (context, index) {
+              return Text(
+                celebrity.biography,
+                // textAlign: TextAlign.justify,
+                style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      fontSize: 14,
+                      height: 1.5,
+                      fontWeight: FontWeight.w500,
+                    ),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }

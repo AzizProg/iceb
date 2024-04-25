@@ -1,48 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iceb/core/enum/cathegories.dart';
 import 'package:iceb/data/repository_impl/repository_impl.dart';
 import 'package:iceb/domain/entity/celebrity.dart';
-import 'package:iceb/presentation/story/component/artistes.dart';
-import 'package:iceb/presentation/story/component/founder.dart';
-import 'package:iceb/presentation/story/component/information.dart';
+import 'package:iceb/presentation/media/view/media_communication.dart';
+import 'package:iceb/presentation/sport/view/sport.dart';
+import 'package:iceb/presentation/story/component/customTabController.dart';
+
+import '../../innovation/view/innovation.dart';
 
 class StoryController extends GetxController
     with GetSingleTickerProviderStateMixin {
-  StoryController({required RepositoryImpl repositoryImpl}):_repositoryImpl=repositoryImpl;
+  StoryController({required RepositoryImpl repositoryImpl})
+      : _repositoryImpl = repositoryImpl;
   final RepositoryImpl _repositoryImpl;
-   List<CelebrityEntity> celebrities=List.empty();
+ static  List<CelebrityEntity> celebrities = List.empty();
   late TabController tabController;
+
   Rx<int> tabbarIndex = 0.obs;
   List<Widget> pages = [
-    const InformationSection(),
-    const FounderSection(),
-    const ArtistesSection()
+     MediaCommunication(),
+    const Innovation(),
+    const Sport(),
   ];
-  List<String> cathegories = ['Information', 'Founder', 'Artistes'];
+  List<String> cathegories = List.generate(
+      Cathegories.values.length,
+      (index) => Cathegories.values[index]
+          .toString()
+          .split('.')
+          .last
+          .capitalizeFirst!,);
 
   void setTabbarViewIndex(int index) {
     tabController.index = index;
-    update();
   }
 
   Future<void> getCelebrities() async {
-    celebrities = await _repositoryImpl.getCelebrities().then((value) => value.toList());
+    celebrities =
+        await _repositoryImpl.getCelebrities().then((value) => value.toList());
   }
-  @override
-  void onInit() async{
-    super.onInit();
-    tabController = TabController(length: cathegories.length, vsync: this);
-    tabController.addListener(() {
-      tabbarIndex.value = tabController.index;
-    });
 
-  await getCelebrities();
-  print(celebrities);
+  @override
+  void onInit() {
+    super.onInit();
+    tabController = CustomTabController(length: cathegories.length, vsync: this)
+      ..addListener(() {
+        tabbarIndex.value = tabController.index;
+        update();
+      });
+    getCelebrities();
   }
 
   @override
   void onClose() {
     tabController.dispose();
+
     super.onClose();
   }
 }

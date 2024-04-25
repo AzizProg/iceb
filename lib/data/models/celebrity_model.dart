@@ -1,3 +1,4 @@
+import 'package:iceb/core/enum/cathegories.dart';
 import 'package:iceb/domain/entity/celebrity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -12,6 +13,7 @@ class CelebrityModel extends CelebrityEntity {
     required String profession,
     required String image,
     required List<String> companies,
+    required Cathegories cathegory,
   }) : super(
     id: id,
     name: name,
@@ -19,6 +21,7 @@ class CelebrityModel extends CelebrityEntity {
     profession: profession,
     image: image,
     companies: companies,
+    cathegory: cathegory,
   );
 
   factory CelebrityModel.fromJson(Map<String, dynamic> json) =>

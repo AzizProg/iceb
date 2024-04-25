@@ -56,7 +56,13 @@ class Celebrity extends StatelessWidget {
                     child: Hero(
                       tag: name,
                       child: Saturation(
-                        child:CachedNetworkImage(imageUrl: asset,fit: BoxFit.cover,)
+                        child:CachedNetworkImage(imageUrl: asset,fit: BoxFit.cover,
+                        progressIndicatorBuilder: (context,value,DownloadProgress progress){
+
+                          return const CircularProgressIndicator.adaptive();
+                        },
+                        ),
+
                       ),
                     ),
                   ),

@@ -8,13 +8,14 @@ import 'package:iceb/core/extensions/size_helper.dart';
 import 'package:iceb/core/helpers/asset_helper.dart';
 import 'package:iceb/domain/entity/celebrity.dart';
 import 'package:iceb/presentation/onboarding/component/shadow.dart';
+import 'package:iceb/presentation/onboarding/view/onboarding_view.dart';
 import 'package:iceb/presentation/profil/component/description.dart';
 
 import '../../../component/background.dart';
 import '../../story/component/saturation.dart';
 
 class ProfilView extends StatelessWidget {
-  const ProfilView({super.key,required this.celebrity});
+  const ProfilView({super.key, required this.celebrity});
   final CelebrityEntity celebrity;
 
   @override
@@ -39,19 +40,24 @@ class ProfilView extends StatelessWidget {
               child: Hero(
                 tag: celebrity.name,
                 child: Saturation(
-                  child: CachedNetworkImage(imageUrl: celebrity.image,fit: BoxFit.cover,)
-                ),
+                    child: CachedNetworkImage(
+                  imageUrl: celebrity.image,
+                  fit: BoxFit.cover,
+                )),
               ),
             ),
             const Positioned.fill(
               child: ShadowOverImage(),
             ),
             Positioned(
-                bottom: 0,
-                left: 20,
-                right: 20,
-                height: context.getThirdOfHeight,
-                child: const Description()),
+              bottom: 0,
+              left: 20,
+              right: 20,
+              height: context.getThirdOfHeight,
+              child: Description(
+                celebrity: celebrity,
+              ),
+            ),
           ],
         ),
       ),

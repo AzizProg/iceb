@@ -9,10 +9,9 @@ class GlassWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackdropFilter(
-        filter: ImageFilter.blur(sigmaY: 50, sigmaX: 50),
+        filter: ImageFilter.blur(sigmaY: 25, sigmaX: 25),
         child: Container(
-          decoration:
-          BoxDecoration(color: Colors.black.withOpacity(.5)),
-        )) ;
+          decoration: BoxDecoration(color: Colors.black.withOpacity(.5)),
+        ));
   }
 }

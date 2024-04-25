@@ -20,17 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         scrolledUnderElevation: 0,
         leading: Center(
           child: isHome
-              ? InkWell(
-                  overlayColor: MaterialStateColor.resolveWith(
-                      (states) => Colors.transparent),
-                  // customBorder: const StadiumBorder(),
-                  onTap: () {
-                  Get.to(()=>StoryView());
-                  },
-                  child: const FaIcon(
-                    FontAwesomeIcons.barsStaggered,
-                    color: Colors.white,
-                  ))
+              ? null
               : InkWell(
                   onTap: () => Get.back(),
                   overlayColor: MaterialStateColor.resolveWith(
@@ -48,14 +38,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ),
         ),
-        actions: isHome
-            ? const [
-                FaIcon(
-                  FontAwesomeIcons.language,
-                  color: Colors.white,
-                ),
-              ]
-            : null,
+
         backgroundColor: Colors.transparent,
         systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
             statusBarColor: Colors.transparent,

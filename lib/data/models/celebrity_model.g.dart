@@ -15,6 +15,7 @@ CelebrityModel _$CelebrityModelFromJson(Map<String, dynamic> json) =>
       image: json['image'] as String,
       companies:
           (json['companies'] as List<dynamic>).map((e) => e as String).toList(),
+      cathegory: $enumDecode(_$CathegoriesEnumMap, json['cathegory']),
     );
 
 Map<String, dynamic> _$CelebrityModelToJson(CelebrityModel instance) =>
@@ -25,4 +26,11 @@ Map<String, dynamic> _$CelebrityModelToJson(CelebrityModel instance) =>
       'profession': instance.profession,
       'companies': instance.companies,
       'image': instance.image,
+      'cathegory': _$CathegoriesEnumMap[instance.cathegory]!,
     };
+
+const _$CathegoriesEnumMap = {
+  Cathegories.media: 'media',
+  Cathegories.innovation: 'innovation',
+  Cathegories.sport: 'sport',
+};

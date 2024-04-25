@@ -25,10 +25,9 @@ class OnBoardingView extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-       Background(),
+              Background(),
               ShadowOverImage(),
-              Positioned(
-                  left: 20, bottom: 150, right: 20, child: Slogan()),
+              Positioned(left: 20, bottom: 150, right: 20, child: Slogan()),
               Positioned(bottom: 20, right: 20, child: LetsGo()),
             ],
           ),

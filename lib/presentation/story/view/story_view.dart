@@ -33,13 +33,13 @@ class StoryView extends GetView<StoryController> {
                 ),
                 child: Column(
                   children: [
-                    CustomTabbar(),
+                    const CustomTabbar(),
 
                     Expanded(
                       child: TabBarView(
                         controller: controller.tabController,
                         children: List.generate(controller.pages.length,
-                            (index) => controller.pages[index]),
+                            (index) => controller.pages[index],),
                       ),
                     ),
                   ],
