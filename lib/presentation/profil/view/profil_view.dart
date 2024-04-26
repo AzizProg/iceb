@@ -1,18 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:iceb/component/background.dart';
 import 'package:iceb/component/custom_app_bar.dart';
 import 'package:iceb/component/glass_wrapper.dart';
 import 'package:iceb/core/extensions/size_helper.dart';
-import 'package:iceb/core/helpers/asset_helper.dart';
 import 'package:iceb/domain/entity/celebrity.dart';
 import 'package:iceb/presentation/onboarding/component/shadow.dart';
-import 'package:iceb/presentation/onboarding/view/onboarding_view.dart';
-import 'package:iceb/presentation/profil/component/description.dart';
-
-import '../../../component/background.dart';
-import '../../story/component/saturation.dart';
+import 'package:iceb/presentation/profil/component/name_component.dart';
+import 'package:iceb/presentation/profil/component/other_details.dart';
+import 'package:iceb/presentation/story/component/saturation.dart';
 
 class ProfilView extends StatelessWidget {
   const ProfilView({super.key, required this.celebrity});
@@ -53,10 +49,17 @@ class ProfilView extends StatelessWidget {
               bottom: 0,
               left: 20,
               right: 20,
-              height: context.getThirdOfHeight,
-              child: Description(
-                celebrity: celebrity,
-              ),
+              height: context.getThirdOfHeight-context.getHeight(50),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    NameComponent(celebrity: celebrity),
+
+                    Expanded(
+                        child: OtherDerails(
+                      celebrity: celebrity,
+                    ),),
+                  ],),
             ),
           ],
         ),

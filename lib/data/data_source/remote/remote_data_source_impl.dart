@@ -6,13 +6,13 @@ class RemoteDataSourceImpl extends RemoteDataSource {
   RemoteDataSourceImpl({required FirebaseFirestore firestore})
       : _firestore = firestore;
 
-  FirebaseFirestore _firestore;
+  final FirebaseFirestore _firestore;
   @override
   Future<List<CelebrityModel>> getCelebrities() async {
     return _firestore.collection('celebrities').get().then(
           (value) =>
               value.docs.map((e) => CelebrityModel.fromJson(e.data())).toList(),
-          onError: (e) => print(e),
+          onError: print,
         );
   }
 }

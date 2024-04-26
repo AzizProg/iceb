@@ -10,7 +10,7 @@ class SportController extends GetxController {
 
   void getSportCelebrities() {
     celebrities = StoryController.celebrities
-        .where((element) => element.cathegory == Cathegories.sport)
+        .where((element) => element.category == Categories.sport)
         .toList();
   }
 

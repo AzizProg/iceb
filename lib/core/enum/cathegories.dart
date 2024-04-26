@@ -1,3 +1,4 @@
-enum Cathegories{
-  media,innovation,sport
+enum Categories{
+  communication,innovation,sport
 }
+

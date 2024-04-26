@@ -1,15 +1,18 @@
 import 'package:equatable/equatable.dart';
 import 'package:iceb/core/enum/cathegories.dart';
 
+import '../../core/enum/gender.dart';
+
 class CelebrityEntity extends Equatable {
-  CelebrityEntity( {
+  CelebrityEntity(  {
     required this.id,
     required this.name,
     required this.biography,
     required this.profession,
     required this.companies,
     required this.image,
-    required this.cathegory,
+    required this.category,
+    required this.gender,
   });
   final String id;
   final String name;
@@ -17,9 +20,10 @@ class CelebrityEntity extends Equatable {
   final String profession;
   final List<String> companies;
   final String image;
-  final Cathegories cathegory;
+  final Categories category;
+  final Gender gender;
 
   @override
   List<Object?> get props =>
-      [this.id, this.name, this.biography, this.profession, this.companies,this.cathegory];
+      [this.id, this.name, this.biography, this.profession, this.companies,this.category,this.gender,this.image];
 }

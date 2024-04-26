@@ -9,14 +9,16 @@ class MediaController extends GetxController {
 
 
   void getMediaCelebrities() {
+    print(celebrities);
     celebrities = StoryController.celebrities
-        .where((element) => element.cathegory == Cathegories.media)
+        .where((element) => element.category == Categories.communication)
         .toList();
   }
 
   @override
   void onInit() {
     getMediaCelebrities();
+    print(celebrities);
     super.onInit();
   }
 }

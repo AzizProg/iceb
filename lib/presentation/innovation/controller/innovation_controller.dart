@@ -10,7 +10,7 @@ class InnovationController extends GetxController{
 
   void getInnovationCelebrities() {
     celebrities = StoryController.celebrities
-        .where((element) => element.cathegory == Cathegories.innovation)
+        .where((element) => element.category == Categories.innovation)
         .toList();
   }
 

@@ -16,7 +16,7 @@ class RepositoryImpl extends Repository {
             biography: e.biography,
             profession: e.profession,
             image: e.image,
-            companies: e.companies,cathegory: e.cathegory))
+            companies: e.companies,category: e.category, gender: e.gender))
         .toList(),);
   }
 }

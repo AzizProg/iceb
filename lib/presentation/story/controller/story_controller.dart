@@ -24,8 +24,8 @@ class StoryController extends GetxController
     const Sport(),
   ];
   List<String> cathegories = List.generate(
-      Cathegories.values.length,
-      (index) => Cathegories.values[index]
+      Categories.values.length,
+      (index) => Categories.values[index]
           .toString()
           .split('.')
           .last
