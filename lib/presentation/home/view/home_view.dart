@@ -66,6 +66,7 @@ class HomeView extends StatelessWidget {
               height: context.getThirdOfHeight,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   FadeInUp(
                     duration: const Duration(seconds: 1),
@@ -73,7 +74,7 @@ class HomeView extends StatelessWidget {
                       effects: const [ScaleEffect()],
                       delay: const Duration(milliseconds: 300),
                       child: Text(
-                        'Celebrity Immersion',
+                        'Inspirant',
                         textAlign: TextAlign.justify,
                         style: Theme.of(context)
                             .textTheme
@@ -91,7 +92,7 @@ class HomeView extends StatelessWidget {
                         effects: const [ScaleEffect()],
                         delay: const Duration(milliseconds: 500),
                         child: Text(
-                          'Talent',
+                          'Talentueux',
                           textAlign: TextAlign.start,
                           style:
                               Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -113,7 +114,7 @@ class HomeView extends StatelessWidget {
                       child: Animate(
                         effects: const [ScaleEffect()],
                         child: Text(
-                          'Models',
+                          'Déterminé',
                           textDirection: TextDirection.ltr,
                           style:
                               Theme.of(context).textTheme.bodyLarge?.copyWith(
