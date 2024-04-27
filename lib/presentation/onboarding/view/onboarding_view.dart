@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:iceb/component/background.dart';
 import 'package:iceb/component/status_bar.dart';
+import 'package:iceb/core/extensions/size_helper.dart';
 import 'package:iceb/core/helpers/asset_helper.dart';
 import 'package:iceb/presentation/onboarding/component/lets_go.dart';
 import 'package:iceb/presentation/onboarding/component/slogan.dart';
@@ -18,17 +19,18 @@ class OnBoardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const StatusBar(
+    return  StatusBar(
       child: Scaffold(
         body: SafeArea(
           top: false,
+          bottom: false,
           child: Stack(
             fit: StackFit.expand,
             children: [
               Background(),
               ShadowOverImage(),
-              Positioned(left: 20, bottom: 150, right: 20, child: Slogan()),
-              Positioned(bottom: 20, right: 20, child: LetsGo()),
+              Positioned(left: context.getWidth(20), bottom: context.getHeight(120), right: context.getWidth(20), child: Slogan()),
+              Positioned(bottom: context.getHeight(20), right: context.getWidth(20), child: LetsGo()),
             ],
           ),
         ),

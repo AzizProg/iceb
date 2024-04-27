@@ -41,6 +41,8 @@ unlinked.ds
 unlinked_spec.ds
 .fvm/
 
+# Firebase
+firebase.json
 # Android related
 **/android/**/gradle-wrapper.jar
 **/android/.gradle
@@ -110,3 +112,6 @@ app.*.map.json
 !.idea/codeStyles/
 !.idea/dictionaries/
 !.idea/runConfigurations/
+
+
+

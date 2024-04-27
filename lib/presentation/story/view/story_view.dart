@@ -4,6 +4,7 @@ import 'package:iceb/component/background.dart';
 import 'package:iceb/component/custom_app_bar.dart';
 import 'package:iceb/component/glass_wrapper.dart';
 import 'package:iceb/component/status_bar.dart';
+import 'package:iceb/core/extensions/size_helper.dart';
 import 'package:iceb/presentation/story/component/custom_tabbar.dart';
 import 'package:iceb/presentation/story/controller/story_controller.dart';
 
@@ -26,10 +27,10 @@ class StoryView extends GetView<StoryController> {
               const Positioned.fill(child: Background()),
               const Positioned.fill(child: GlassWrapper()),
               Container(
-                margin: const EdgeInsets.only(
-                  top: kToolbarHeight + 50,
-                  left: 10,
-                  right: 10,
+                margin:  EdgeInsets.only(
+                  top: kToolbarHeight + context.getHeight(20) ,
+                  left: context.getWidth(10) ,
+                  right: context.getWidth(10) ,
                 ),
                 child: Column(
                   children: [

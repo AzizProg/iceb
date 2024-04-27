@@ -20,8 +20,7 @@ class CustomTabbar extends GetView<StoryController> {
               indicatorColor: Colors.white,
               tabAlignment: TabAlignment.start,
               physics: const BouncingScrollPhysics(),
-              //labelPadding: EdgeInsets.symmetric(vertical: 0,horizontal: 10),
-              indicatorSize: TabBarIndicatorSize.label,
+          indicatorSize: TabBarIndicatorSize.label,
               indicator: const UnderlineTabIndicator(
                   borderSide: BorderSide(color: Colors.white),
                 ),
@@ -39,27 +38,3 @@ class CustomTabbar extends GetView<StoryController> {
     );
   }
 }
-// ListView.separated(
-// scrollDirection: Axis.horizontal,
-// shrinkWrap: true,
-// physics: const BouncingScrollPhysics(),
-// itemCount: controller.cathegories.length,
-// separatorBuilder: (context, int) {
-// return const SizedBox(
-// width: 10,
-// );
-// },
-// itemBuilder: (context, index) {
-// final cathegory = controller.cathegories[index];
-// return Obx(
-// () => CustomTab(
-// title: cathegory,
-// isTab: controller.cathegories.indexOf(cathegory) ==
-// controller.tabbarIndex.value,
-// onTap: () {
-// controller.setTabbarViewIndex(index);
-// },
-// ),
-// );
-// },
-// ),

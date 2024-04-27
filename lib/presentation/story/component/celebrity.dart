@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iceb/core/extensions/size_helper.dart';
@@ -23,12 +24,13 @@ class Celebrity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20,),
       child: Center(
         child: Stack(
           alignment: Alignment.center,
           children: [
             Container(
+
               width: double.infinity,
               height: context.getHeight(300),
               decoration: BoxDecoration(
@@ -39,12 +41,12 @@ class Celebrity extends StatelessWidget {
             Positioned.fill(
               child: AnimatedContainer(
                 duration: const Duration(seconds: 1),
-                //alignment: Alignment.bottomCenter,
+
                 curve: Curves.easeInOut,
                 transform: Matrix4.identity()
                   ..translate(
                     0.0,
-                    fixed ? -100.0 : 0.0,
+                    fixed ? context.getHeight(-100.0) : 0.0,
                   )
                 // ..scale(fixed ? 1.0 : 1.0, fixed ? 1.2 : 1.0, 1.0)
                 ,
@@ -59,7 +61,7 @@ class Celebrity extends StatelessWidget {
                         child:CachedNetworkImage(imageUrl: asset,fit: BoxFit.cover,
                         progressIndicatorBuilder: (context,value,DownloadProgress progress){
 
-                          return const CircularProgressIndicator.adaptive();
+                          return const CircularProgressIndicator();
                         },
                         ),
 

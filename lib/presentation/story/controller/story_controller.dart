@@ -3,11 +3,10 @@ import 'package:get/get.dart';
 import 'package:iceb/core/enum/cathegories.dart';
 import 'package:iceb/data/repository_impl/repository_impl.dart';
 import 'package:iceb/domain/entity/celebrity.dart';
-import 'package:iceb/presentation/media/view/media_communication.dart';
-import 'package:iceb/presentation/sport/view/sport.dart';
-import 'package:iceb/presentation/story/component/customTabController.dart';
+import 'package:iceb/presentation/communication/view/communication.dart';
+import 'package:iceb/presentation/innovation/view/innovation.dart';
 
-import '../../innovation/view/innovation.dart';
+import 'package:iceb/presentation/sport/view/sport.dart';
 
 class StoryController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -19,7 +18,7 @@ class StoryController extends GetxController
 
   Rx<int> tabbarIndex = 0.obs;
   List<Widget> pages = [
-     MediaCommunication(),
+     Communication(),
     const Innovation(),
     const Sport(),
   ];
@@ -43,7 +42,7 @@ class StoryController extends GetxController
   @override
   void onInit() {
     super.onInit();
-    tabController = CustomTabController(length: cathegories.length, vsync: this)
+    tabController = TabController(length: cathegories.length, vsync: this)
       ..addListener(() {
         tabbarIndex.value = tabController.index;
         update();

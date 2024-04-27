@@ -38,8 +38,8 @@ class LetsGo extends StatelessWidget {
             ),
             Spacer(),
             Container(
-              width: 30,
-              height: 30,
+              width: context.getWidth(30),
+              height: context.getHeight(30),
               padding: const EdgeInsets.all(4),
               decoration: const BoxDecoration(
                 color: Colors.white,

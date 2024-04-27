@@ -31,7 +31,7 @@ class HomeView extends StatelessWidget {
               autoPlay: false,
               onInit: (controller) {
                 Future.delayed(const Duration(seconds: 3, milliseconds: 500),
-                    () => controller.forward());
+                    () => controller.forward(),);
               },
               onComplete: (controller) {
                 controller.repeat();
@@ -54,15 +54,16 @@ class HomeView extends StatelessWidget {
       appBar: CustomAppBar(),
       body: SafeArea(
         top: false,
+        bottom: false,
         child: Stack(
           fit: StackFit.expand,
           children: [
             const Background(),
             const Positioned.fill(child: GlassWrapper()),
             Positioned(
-              top: kToolbarHeight + 80,
-              right: 20,
-              left: 20,
+              top: kToolbarHeight + context.getHeight(80),
+              right:context.getHeight(20) ,
+              left: context.getHeight(20) ,
               height: context.getThirdOfHeight,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -128,9 +129,9 @@ class HomeView extends StatelessWidget {
               ),
             ),
             Positioned(
-              right: 20,
-              left: 20,
-              bottom: 100,
+              right: context.getHeight(20) ,
+              left: context.getHeight(20) ,
+              bottom: context.getHeight(100) ,
               child: FadeInUp(
                 duration: const Duration(seconds: 1, milliseconds: 500),
                 from: 800,

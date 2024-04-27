@@ -4,7 +4,7 @@ import 'package:iceb/core/enum/cathegories.dart';
 import 'package:iceb/domain/entity/celebrity.dart';
 import 'package:iceb/presentation/story/controller/story_controller.dart';
 
-class MediaController extends GetxController {
+class CommunicationController extends GetxController {
   List<CelebrityEntity> celebrities = List.empty();
 
 
@@ -18,7 +18,6 @@ class MediaController extends GetxController {
   @override
   void onInit() {
     getMediaCelebrities();
-    print(celebrities);
     super.onInit();
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:iceb/core/extensions/size_helper.dart';
 import 'package:iceb/presentation/story/component/custom_tab.dart';
 import 'package:iceb/presentation/story/view/story_view.dart';
 
@@ -9,10 +10,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   CustomAppBar({super.key, this.isHome = true});
 
   bool isHome;
-
+double tabbarHeight=0;
 
   @override
   Widget build(BuildContext context) {
+    tabbarHeight=context.getHeight(20);
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 15),
       child: AppBar(
@@ -54,5 +56,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 40);
+  Size get preferredSize =>  Size.fromHeight(kToolbarHeight+tabbarHeight );
 }
