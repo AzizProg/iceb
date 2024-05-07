@@ -18,7 +18,7 @@ dependencies:
   equatable:
   json_annotation: ^4.8.1
   firebase_core: ^2.30.1
-  cloud_firestore: ^4.17.1
+  cloud_firestore: ^4.17.3
   cached_network_image: ^3.3.1
   flutter_animate: ^4.5.0
   animate_do: ^3.3.4
